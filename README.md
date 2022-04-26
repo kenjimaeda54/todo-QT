@@ -172,8 +172,16 @@ Data_edit::Data_edit(QWidget *parent,int id,QString task) : //quando definir no 
 
 }
 
-
-
-
 ```
+
+##
+
+## ScreenShoots
+![insertSuces.jpeg](https://github.com/kenjimaeda54/todo-QT/blob/develop/assets/insertSuces.jpeg)
+![add.jpeg](https://github.com/kenjimaeda54/todo-QT/blob/develop/assets/add.jpeg)
+
+
+
+
+
 
