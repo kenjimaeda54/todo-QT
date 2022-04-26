@@ -5,7 +5,7 @@
 #include <QMessageBox>
 #include <QtSql>
 #include <QFileInfo>
-
+#include "data_edit.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -17,6 +17,7 @@ class ToDo : public QMainWindow
     Q_OBJECT
 
 public:
+
     ToDo(QWidget *parent = nullptr);
 
     void start();  //essa funcao vai verificar se o caminho do user existe se nao exister vamos jogar o :/todo.db para o user,assim ele pode gerar um backup
@@ -34,6 +35,8 @@ private slots:
     void on_action_about_triggered();
 
     void on_pushButton_clicked();
+
+    void on_table_list_cellClicked(int row, int column);
 
 private:
     Ui::ToDo *ui;

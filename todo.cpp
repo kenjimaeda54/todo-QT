@@ -35,16 +35,17 @@ void ToDo::start(){
 
 }
 
-
+int test =0;
 void ToDo::show_data() {
     QSqlQuery  query;
-    QString comand = "SELECT * FROM todos ORDER BY id DESC";
+    QString comand = "  SELECT * FROM todos ORDER BY id DESC";
     query.prepare(comand);
 
 
     if(query.exec()){
         int row = 0;
         ui->table_list->setColumnCount(3);
+
 
 
 
@@ -55,7 +56,9 @@ void ToDo::show_data() {
             ui->table_list->setItem(row,1,new QTableWidgetItem(query.value(1).toString()));
             ui->table_list->setItem(row,2,new QTableWidgetItem(query.value(2).toString()));
 
+            row ++; //cuidado essencial somar o numero de linhas para alterar o insertRow
         }
+
 
         QStringList headers {"ID", "DATE/TIME", "TASK"};
 
@@ -64,6 +67,10 @@ void ToDo::show_data() {
         ui->table_list->setColumnWidth(0, 50);
         ui->table_list->setColumnWidth(1, 250);
         ui->table_list->setColumnWidth(2, 750);
+
+        while( row < ui->table_list->rowCount()  ){
+            ui->table_list->removeRow(row); //preciso apagar para poder nao aparecer linhas vazias ou linhas a mais visualmente;
+        }
 
         ui->table_list->verticalHeader()->setVisible(false);
     }
@@ -115,11 +122,21 @@ void ToDo::on_pushButton_clicked()
           QTimer::singleShot(2000,this,[&](){ui->statusbar->close();});//depois de 200 milisegundos vai fechar o statusbar;
           ui->input_task->clear();
           ui->input_task->setFocus();
-          ui->table_list->clear();  //para limpar oque esta visualmente na tela se nao vai replicar visualmente o valor anterior com uma nova consulta
           show_data();
 
       }
 
+
+}
+
+
+void ToDo::on_table_list_cellClicked(int row, int column)
+{
+    int id =  ui->table_list->item(row,0)->text().toInt();// estou usando a coluna 0 porque e aonde esta o id da tarefa
+    QString task =  ui->table_list->item(row,2)->text();
+    Data_edit data_edit(this,id,task);
+    data_edit.exec();
+    show_data(); //assim que terminar da classe data_edit ser executada isto entrara em acao,por isso estou chamando o show_data()
 
 }
 
