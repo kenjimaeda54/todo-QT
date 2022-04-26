@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=ToDo
+Icon=mytodo
+Type=Application
+Categories=Qt;Utility;
+Exec=todo
+Terminal=false
+StartupNotify=false
+X-AppImage-Version=
