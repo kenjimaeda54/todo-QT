@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>todo.db</file>
+        <file>assets/mytodo.png</file>
+        <file>assets/close.png</file>
+        <file>assets/about.png</file>
+    </qresource>
+</RCC>
