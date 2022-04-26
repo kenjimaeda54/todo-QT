@@ -2,8 +2,8 @@
 Aplicativo de tarefas em QT com C++
 
 
-## Motivacao 
-Praticar conhecimentos em QT, produzir uma app próximo ao  do mercado em quesito de fundacionalidades é usar um banco  para persistir os dados
+##  Motivação
+Praticar conhecimentos em QT, produzir uma app próximo ao  mercado em quesito de fundacionalidades é usar um banco  para persistir os dados
 
 ##
 - Realizei uma lógica para possibilitar o backup dos arquivos gerados do banco de dados
